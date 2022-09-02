@@ -1,6 +1,8 @@
 const express = require('express')
+const homeRoutes = require('./routes/home-routes')
 const authRoutes = require('./routes/auth-routes')
 const profileRoutes = require('./routes/profile-routes')
+const commentRoutes = require('./routes/comment-routes')
 const passportSetup = require('./config/passport-setup')
 const mongoose = require('mongoose')
 const keys = require('./config/keys')
@@ -15,6 +17,9 @@ app.set('view engine', 'ejs')
 
 //serve static files
 app.use(express.static('public'))
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 //connect mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
@@ -34,13 +39,12 @@ app.use(passport.session())
 
 
 //set up routes
+app.use('/', homeRoutes)
 app.use('/auth', authRoutes)
 app.use('/profile', profileRoutes)
+app.use('/comment', commentRoutes)
 
-//home route
-app.get('/', (req, res) => {
-  res.render('home', { user: req.user, title: 'Home' })
-})
+
 
 
 app.listen(3000, console.log('Server running...'))
