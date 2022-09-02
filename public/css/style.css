@@ -37,3 +37,18 @@ main, header{
   padding: 10px;
   background: #ff5353;
 }
+
+form{
+  margin-top: 32px;
+}
+
+
+.message{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.thumbnail{
+  border-radius: 50%;
+}

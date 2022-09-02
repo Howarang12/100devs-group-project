@@ -9,27 +9,36 @@
   </header> 
   <main>
     <h3>Comments</h3>
-    <% commentList.forEach( list => { %> 
-      <section class="message" data-id ='<%=list._id%>'>
-        <h4><%= list.username %></h4>
-        <p><%= list.comment %> </p>
-        <span><%= list.likes.length %> </span>
-        <span><%= list.date %> </span>
-        <% if(user && user.googleId === list.googleId) { %> 
-          <button class="delete-btn"> Delete </button>
+    
+    <!-- Check if the user is logged in. If they are, the form will show to let them post a message -->
+    <% if (user) { %>
+      <form action="/comment/new-comment" method="post">
+        <textarea name="comment" id="" cols="50" rows="5" placeholder="Post a comment..."></textarea>
+        <button type="submit">Post</button> 
+      </form>
+    <% } else {%>
+      <h6>Log in to post a comment</h6>
+    <% } %> 
+
+    <!-- Loop through the database to display all messages. commentList is passed through the home-routes when the home page is rendered-->
+    <% commentList.forEach( el => { %> 
+      <section class="message" data-id ='<%=el._id%>'>
+      <img src="<%=el.thumbnail  %> " alt="" referrerpolicy="no-referrer" class="thumbnail">
+        <div>
+          <h4><%= el.username %></h4>
+           <span><%= el.date %> </span>
+          <p><%= el.comment %> </p>
+          <div class="likes"><i class="fa-solid fa-thumbs-up"></i> <%= el.likes.length %> </div>
+        </div>
+        <% if(user && user.googleId === el.googleId) { %> 
+          <button class="delete-btn" data-id = '<%=el._id%>'> Delete </button>
           <button class="edit-btn">Edit</button>
         <% } %> 
       </section>
     <% }) %> 
-  </main>
-  <form action="/comment/new-comment" method="post">
-    <% if (user) { %>
-      <label for="comment">Post a comment</label>
-      <input type="text" placeholder="Enter your comment" name="comment">
-      <input type="submit"> 
-    <% } %> 
-  </form>
 
+  </main>
+   
   <script src="js/main.js"></script>
 </body>
 </html>
