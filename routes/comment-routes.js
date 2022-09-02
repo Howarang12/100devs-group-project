@@ -21,7 +21,6 @@ router.post('/new-comment', async (req, res)=>{
 router.delete('/delete-comment', async (req, res) => {
   try{
     await Comment.findByIdAndDelete({ _id: req.body.commentId})
-    console.log('Deleted comment')
     res.json('Deleted comment from server')
   } catch(err) {
     console.log(err)
