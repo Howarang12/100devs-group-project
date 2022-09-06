@@ -1,4 +1,4 @@
-![alt text](https://imgur.com/a/w8oTCQQ)
+![](images/screenshot.PNG)
 
 We tried to recreate a simple commenting system similar to what is found on youtube. <br />
 
