@@ -1,4 +1,4 @@
-<img src="images/screenshot.png" />
+<img src="./images/screenshot.png" />
 
 We tried to recreate a simple commenting system similar to what is found on youtube. <br />
 
