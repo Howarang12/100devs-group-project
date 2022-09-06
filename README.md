@@ -1,4 +1,4 @@
-![](images/screenshot.PNG)
+<img src="https://imgur.com/a/w8oTCQQ">
 
 We tried to recreate a simple commenting system similar to what is found on youtube. <br />
 
