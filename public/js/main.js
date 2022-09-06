@@ -9,17 +9,25 @@ Array.from(deleteBtns).forEach(btn =>{
     btn.addEventListener("click", deleteComment)
 })
 
+//show and hide reply form
+Array.from(replyBtns).forEach(btn =>{
+    btn.addEventListener("click", showReplyForm)
+})
+
 Array.from(cancelReplyBtns).forEach(btn =>{
     btn.addEventListener("click", hideReplyForm)
+})
+
+//show and hide edit form
+Array.from(editBtns).forEach(btn =>{
+    btn.addEventListener("click", showEditForm)
 })
 
 Array.from(cancelEditBtns).forEach(btn =>{
     btn.addEventListener("click", hideEditForm)
 })
 
-Array.from(replyBtns).forEach(btn =>{
-    btn.addEventListener("click", showReplyForm)
-})
+
 
 async function deleteComment(){
     const commentId = this.dataset.id
@@ -52,6 +60,11 @@ function hideReplyForm(e){
     let textArea = form.firstChild.nextSibling
     textArea.value = ''
     form.style.display ='none'
+}
+
+function showEditForm(){
+    let form = 
+    form.style.display = 'block' 
 }
 
 function hideEditForm(e){

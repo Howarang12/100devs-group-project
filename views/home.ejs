@@ -45,8 +45,8 @@
         <button class="cancel-reply-btn btn btn-secondary">Cancel</button>
       </form>
 
-      <form action="#" method="post" class="edit-form">
-        <textarea class="form-control mb-3" name="reply" rows="3" placeholder="Reply" required><%= comment.comment %></textarea>
+      <form action="/comment/<%= comment.id %>/edit" method="post" class="hidden edit-form">
+        <textarea class="form-control mb-3" name="edit" rows="3" required ><%= comment.comment %></textarea>
         <button type="submit" class="btn btn-primary">Save</button>
         <button class="cancel-edit-btn btn btn-secondary">Cancel</button>
       </form>

@@ -8,7 +8,7 @@ exports.newComment = async (req, res)=>{
           googleId: req.user.googleId, 
           thumbnail: req.user.thumbnail, 
           comment: req.body.comment, 
-          date: new Date().toLocaleString(),
+          date: Date.now(),
           likes: [],
           reply: []
         })
@@ -18,18 +18,6 @@ exports.newComment = async (req, res)=>{
       console.log(err)
   }
 } 
-
-exports.deleteComment = async (req, res) => {
-  try{
-    //delete replies to comment
-    await Reply.deleteMany({commentId: req.body.commentId})
-    //delete comment itself
-    await Comment.findByIdAndDelete({ _id: req.body.commentId})
-    res.json('Deleted comment from server')
-  } catch(err) {
-    console.log(err)
-  }
-}
 
 exports.replyComment = async (req, res) => {
   //find which comment to reply to
@@ -52,4 +40,30 @@ exports.replyComment = async (req, res) => {
     if(err) console.log(err)
     res.redirect('/')
   })
+}
+
+exports.editComment = async (req, res) => {
+  const id = req.params.id 
+  try{
+    await Comment.findOneAndUpdate({_id: id},{
+    comment: req.body.edit 
+    })
+    res.redirect('/')
+    res.json('Comment edited')
+  } catch (err) {
+    console.log(err)
+  }
+  
+}
+
+exports.deleteComment = async (req, res) => {
+  try{
+    //delete replies to comment
+    await Reply.deleteMany({commentId: req.body.commentId})
+    //delete comment itself
+    await Comment.findByIdAndDelete({ _id: req.body.commentId})
+    res.json('Deleted comment from server')
+  } catch(err) {
+    console.log(err)
+  }
 }
