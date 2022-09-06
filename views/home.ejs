@@ -44,6 +44,11 @@
         <button type="submit" class="btn btn-primary">Reply</button>
         <button class="cancel-btn btn btn-secondary">Cancel</button>
       </form>
+      <section class="replies mt-3">
+        <% el.replies.forEach(reply => { %>
+          <p>Reply ID: <%= reply %> </p>
+        <% }) %> 
+      </section>
     <% }) %> 
 
   </main>

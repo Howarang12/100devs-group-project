@@ -43,5 +43,7 @@ function showReplyForm(e){
 function hideReplyForm(e){
     e.preventDefault()
     let form = this.parentElement
+    let textArea = form.firstChild.nextSibling
+    textArea.value = ''
     form.style.display ='none'
 }
