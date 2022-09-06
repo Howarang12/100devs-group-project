@@ -9,7 +9,8 @@ router.post('/new-comment', async (req, res)=>{
           thumbnail: req.user.thumbnail, 
           comment: req.body.comment, 
           date: Date.now(),
-          likes: [] 
+          likes: [],
+          reply: []
         })
       console.log('Comment added')
       res.redirect('/')

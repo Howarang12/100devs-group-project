@@ -23,10 +23,10 @@ const commentSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'comment'
   }],
-  reply:{
+  reply:[{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'reply'
-  }
+  }]
 })
 
 const Comment = mongoose.model('comment', commentSchema)
