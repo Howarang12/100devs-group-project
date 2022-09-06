@@ -1,4 +1,5 @@
-<img src="https://imgur.com/a/w8oTCQQ" />
+![screenshot](https://user-images.githubusercontent.com/88353050/188748805-76e3610a-241c-4873-b2a5-a2d1e67ae816.PNG)
+
 
 We tried to recreate a simple commenting system similar to what is found on youtube. <br />
 
