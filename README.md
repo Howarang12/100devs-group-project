@@ -15,3 +15,4 @@ Optimizations in the future: <br />
 -Allow users to reply to other user replies <br />
 -Add ability to edit and delete their replies
 -Improved selection for toggling edit and reply forms in main.js
+-Add styling to shift replies right (comment chaining)
