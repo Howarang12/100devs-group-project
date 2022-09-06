@@ -8,5 +8,5 @@ Functionalities include: <br />
 For keys, create a keys.js file in the config folder and input the info found in ./config/keyFormat.js. This was done in place of using .env <br />
 
 Optimizations in the future: <br />
--Create individual pages to comment on
+-Create individual pages to comment on <br />
 -Allow users to reply to other user replies
