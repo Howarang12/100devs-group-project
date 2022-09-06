@@ -1,14 +1,20 @@
 const deleteBtns = document.querySelectorAll('.delete-btn');
 const replyBtns = document.querySelectorAll('.reply-btn')
-const cancelBtns = document.querySelectorAll('.cancel-btn')
+const editBtns = document.querySelectorAll('.edit-btn')
+const cancelReplyBtns = document.querySelectorAll('.cancel-reply-btn')
+const cancelEditBtns = document.querySelectorAll('.cancel-edit-btn')
 
 
 Array.from(deleteBtns).forEach(btn =>{
     btn.addEventListener("click", deleteComment)
 })
 
-Array.from(cancelBtns).forEach(btn =>{
+Array.from(cancelReplyBtns).forEach(btn =>{
     btn.addEventListener("click", hideReplyForm)
+})
+
+Array.from(cancelEditBtns).forEach(btn =>{
+    btn.addEventListener("click", hideEditForm)
 })
 
 Array.from(replyBtns).forEach(btn =>{
@@ -45,5 +51,11 @@ function hideReplyForm(e){
     let form = this.parentElement
     let textArea = form.firstChild.nextSibling
     textArea.value = ''
+    form.style.display ='none'
+}
+
+function hideEditForm(e){
+    e.preventDefault()
+    let form = this.parentElement
     form.style.display ='none'
 }

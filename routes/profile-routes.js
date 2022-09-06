@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const profileController = require('../controller/profile-controller')
 
 //ensure authentication middleware
 const authCheck = (req, res, next) => {
@@ -10,8 +11,6 @@ const authCheck = (req, res, next) => {
   }
 } 
 
-router.get('/', authCheck, (req, res) => {
-  res.render('profile', { user: req.user, title: 'Profile'})
-})
+router.get('/', authCheck, profileController.getProfile)
 
 module.exports = router

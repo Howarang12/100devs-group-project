@@ -13,7 +13,7 @@
     <% if (user) { %>
       <form action="/comment/new-comment" method="post">
         <textarea class="form-control" name="comment" rows="5" placeholder="Post a comment..."></textarea>
-        <button type="submit" class="btn btn-primary mt-3 mb-5">Post</button> 
+        <button type="submit" class="btn btn-primary mt-3 mb-5 ">Post</button> 
       </form>
     <% } else {%>
       <h6 class="mb-5">Log in to post a comment</h6>
@@ -42,8 +42,15 @@
       <form action="/comment/<%= comment.id %>/reply" method="post" class="hidden reply-form">
         <textarea class="form-control mb-3" name="reply" rows="3" placeholder="Reply" required></textarea>
         <button type="submit" class="btn btn-primary">Reply</button>
-        <button class="cancel-btn btn btn-secondary">Cancel</button>
+        <button class="cancel-reply-btn btn btn-secondary">Cancel</button>
       </form>
+
+      <form action="#" method="post" class="edit-form">
+        <textarea class="form-control mb-3" name="reply" rows="3" placeholder="Reply" required><%= comment.comment %></textarea>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="cancel-edit-btn btn btn-secondary">Cancel</button>
+      </form>
+
       <section class="replies mt-3">
         <!-- filter through the reply list for the replies that have the corresponding commentId. Replies is passed through home-routes.js -->
         <% replies.filter(toKeep => toKeep.commentId.toString() === comment.id).forEach(reply => { %>
