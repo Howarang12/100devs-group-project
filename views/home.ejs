@@ -13,7 +13,7 @@
     <!-- Check if the user is logged in. If they are, the form will show to let them post a message -->
     <% if (user) { %>
       <form action="/comment/new-comment" method="post">
-        <textarea name="comment" id="" cols="50" rows="5" placeholder="Post a comment..."></textarea>
+        <textarea class="form-control" name="comment" id="" cols="50" rows="5" placeholder="Post a comment..."></textarea>
         <button type="submit">Post</button> 
       </form>
     <% } else {%>
@@ -30,9 +30,12 @@
           <p><%= el.comment %> </p>
           <div class="likes"><i class="fa-solid fa-thumbs-up"></i> <%= el.likes.length %> </div>
         </div>
+        <% if(user){ %>
+          <button class="reply-btn btn btn-primary" data-id = '<%=el._id%>' > Reply </button>
+        <% } %> 
         <% if(user && user.googleId === el.googleId) { %> 
-          <button class="delete-btn" data-id = '<%=el._id%>'> Delete </button>
-          <button class="edit-btn">Edit</button>
+          <button class="edit-btn btn btn-info">Edit</button>
+          <button class="delete-btn btn btn-danger" data-id = '<%=el._id%>'> Delete </button>
         <% } %> 
       </section>
     <% }) %> 

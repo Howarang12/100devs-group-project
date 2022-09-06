@@ -1,6 +1,7 @@
-const deleteBtn = document.querySelectorAll('.delete-btn');
+const deleteBtns = document.querySelectorAll('.delete-btn');
+const replyBtns = document.querySelectorAll('.reply-btn')
 
-Array.from(deleteBtn).forEach(x =>{
+Array.from(deleteBtns).forEach(x =>{
     x.addEventListener("click", deleteComment)
 })
 
@@ -21,4 +22,8 @@ async function deleteComment(){
     } catch(err){
         console.log(err)
     }
+}
+
+async function replyComment(){
+    const commentId = this.dataset.id
 }

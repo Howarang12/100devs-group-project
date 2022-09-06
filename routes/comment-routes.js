@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Comment = require('../models/comment-model')
+const Reply = require('../models/reply-model')
 
 router.post('/new-comment', async (req, res)=>{
   try{
