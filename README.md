@@ -1,4 +1,4 @@
-<img src="https://imgur.com/a/w8oTCQQ">
+<img src="images/screenshot.png" />
 
 We tried to recreate a simple commenting system similar to what is found on youtube. <br />
 
