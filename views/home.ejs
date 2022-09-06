@@ -5,7 +5,6 @@
   <%- include('./partials/_nav.ejs') %> 
   <header>
     <h1>Homepage</h1>
-    <h2></h2>
   </header> 
   <main>
     <h3>Comments</h3>
@@ -13,31 +12,38 @@
     <!-- Check if the user is logged in. If they are, the form will show to let them post a message -->
     <% if (user) { %>
       <form action="/comment/new-comment" method="post">
-        <textarea class="form-control" name="comment" id="" cols="50" rows="5" placeholder="Post a comment..."></textarea>
-        <button type="submit">Post</button> 
+        <textarea class="form-control" name="comment" rows="5" placeholder="Post a comment..."></textarea>
+        <button type="submit" class="btn btn-primary mt-3 mb-5">Post</button> 
       </form>
     <% } else {%>
-      <h6>Log in to post a comment</h6>
+      <h6 class="mb-5">Log in to post a comment</h6>
     <% } %> 
 
     <!-- Loop through the database to display all messages. commentList is passed through the home-routes when the home page is rendered-->
     <% commentList.forEach( el => { %> 
-      <section class="message" data-id ='<%=el._id%>'>
-      <img src="<%=el.thumbnail  %> " alt="" referrerpolicy="no-referrer" class="thumbnail">
+      <section class="message mt-5" data-id ='<%=el._id%>'>
+        <img src="<%=el.thumbnail  %> " alt="" referrerpolicy="no-referrer" class="thumbnail">
         <div>
           <h4><%= el.username %></h4>
           <span><%= el.date %> </span>
           <p><%= el.comment %> </p>
           <div class="likes"><i class="fa-solid fa-thumbs-up"></i> <%= el.likes.length %> </div>
         </div>
-        <% if(user){ %>
-          <button class="reply-btn btn btn-primary" data-id = '<%=el._id%>' > Reply </button>
-        <% } %> 
-        <% if(user && user.googleId === el.googleId) { %> 
-          <button class="edit-btn btn btn-info">Edit</button>
-          <button class="delete-btn btn btn-danger" data-id = '<%=el._id%>'> Delete </button>
-        <% } %> 
+        <div>
+          <% if(user){ %>
+            <button class="reply-btn btn btn-primary" data-id = '<%=el._id%>' > Reply </button>
+          <% } %>
+          <% if(user && user.googleId === el.googleId) { %>
+            <button class="edit-btn btn btn-secondary">Edit</button>
+            <button class="delete-btn btn btn-danger" data-id = '<%=el._id%>'> Delete </button>
+          <% } %>
+        </div>
       </section>
+      <form action="/comment/<%= el.id %>/reply" method="post" class="hidden reply-form">
+        <textarea class="form-control mb-3" name="reply" rows="3" placeholder="Reply" required></textarea>
+        <button type="submit" class="btn btn-primary">Reply</button>
+        <button class="cancel-btn btn btn-secondary">Cancel</button>
+      </form>
     <% }) %> 
 
   </main>

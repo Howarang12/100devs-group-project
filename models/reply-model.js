@@ -11,17 +11,18 @@ const replySchema = new Schema({
   thumbnail: {
     type: String
   },
-  comment: {
+  reply: {
     type: String,
     required: true,
   },
   date: {
     type: Date
   },
-  likes: {
-    type: [String]
-  },
-  comment: {
+  likes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'comment'
+  }],
+  commentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'comment'
   }

@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
   } catch(err){
       console.log(err)
   }
-
 })
 
 module.exports = router

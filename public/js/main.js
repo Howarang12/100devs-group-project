@@ -1,8 +1,18 @@
 const deleteBtns = document.querySelectorAll('.delete-btn');
 const replyBtns = document.querySelectorAll('.reply-btn')
+const cancelBtns = document.querySelectorAll('.cancel-btn')
 
-Array.from(deleteBtns).forEach(x =>{
-    x.addEventListener("click", deleteComment)
+
+Array.from(deleteBtns).forEach(btn =>{
+    btn.addEventListener("click", deleteComment)
+})
+
+Array.from(cancelBtns).forEach(btn =>{
+    btn.addEventListener("click", hideReplyForm)
+})
+
+Array.from(replyBtns).forEach(btn =>{
+    btn.addEventListener("click", showReplyForm)
 })
 
 async function deleteComment(){
@@ -24,6 +34,14 @@ async function deleteComment(){
     }
 }
 
-async function replyComment(){
-    const commentId = this.dataset.id
+function showReplyForm(e){
+    e.preventDefault()
+    let form = this.parentElement.parentElement.nextSibling.nextSibling
+    form.style.display = 'block' 
+}
+
+function hideReplyForm(e){
+    e.preventDefault()
+    let form = this.parentElement
+    form.style.display ='none'
 }

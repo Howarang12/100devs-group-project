@@ -46,9 +46,14 @@ form{
 .message{
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 24px;
 }
 
 .thumbnail{
   border-radius: 50%;
+}
+
+.hidden{
+  display: none;
 }
