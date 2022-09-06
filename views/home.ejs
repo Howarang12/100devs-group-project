@@ -55,7 +55,15 @@
         <!-- filter through the reply list for the replies that have the corresponding commentId. Replies is passed through home-routes.js -->
         <% replies.filter(toKeep => toKeep.commentId.toString() === comment.id).forEach(reply => { %>
             <!-- render out each reply here -->
-            <p>ReplyId: <%= reply.reply%> </p>
+            <section class="message mt-5" data-id ='<%=reply._id%>'>
+              <img src="<%=reply.thumbnail  %> " alt="" referrerpolicy="no-referrer" class="thumbnail">
+              <div>
+                <h4><%= reply.username %></h4>
+                <span><%= reply.date %> </span>
+                <p><%= reply.reply %> </p>
+                <a href="#" class="likes btn" data-id= '<%=reply._id%>'><i class="fa-solid fa-thumbs-up"></i> <%= reply.likes.length %> </a>
+              </div>
+            </section>
         <% }) %> 
       </section>
     <% }) %> 

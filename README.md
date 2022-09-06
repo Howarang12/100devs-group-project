@@ -1,3 +1,5 @@
+![alt text](https://imgur.com/a/w8oTCQQ)
+
 We tried to recreate a simple commenting system similar to what is found on youtube. <br />
 
 Functionalities include: <br />
@@ -10,4 +12,5 @@ For keys, create a keys.js file in the config folder and input the info found in
 Optimizations in the future: <br />
 -Create individual pages to comment on <br />
 -Allow users to reply to other user replies <br />
+-Add ability to edit and delete their replies
 -Improved selection for toggling edit and reply forms in main.js
