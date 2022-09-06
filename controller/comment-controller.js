@@ -46,7 +46,7 @@ exports.editComment = async (req, res) => {
   const id = req.params.id 
   try{
     await Comment.findOneAndUpdate({_id: id},{
-    comment: req.body.edit 
+    comment: req.body.edit
     })
     res.redirect('/')
     res.json('Comment edited')
@@ -54,6 +54,10 @@ exports.editComment = async (req, res) => {
     console.log(err)
   }
   
+}
+
+exports.likeComment = async (req, res) => {
+  const user = req.user.id
 }
 
 exports.deleteComment = async (req, res) => {

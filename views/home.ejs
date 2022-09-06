@@ -47,7 +47,7 @@
 
       <form action="/comment/<%= comment.id %>/edit" method="post" class="hidden edit-form">
         <textarea class="form-control mb-3" name="edit" rows="3" required ><%= comment.comment %></textarea>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="save-edit-btn btn btn-primary" data-id= '<%=comment._id%>'>Save</button>
         <button class="cancel-edit-btn btn btn-secondary">Cancel</button>
       </form>
 
@@ -55,7 +55,7 @@
         <!-- filter through the reply list for the replies that have the corresponding commentId. Replies is passed through home-routes.js -->
         <% replies.filter(toKeep => toKeep.commentId.toString() === comment.id).forEach(reply => { %>
             <!-- render out each reply here -->
-            <p>ReplyId: <%= reply.commentId %> </p>
+            <p>ReplyId: <%= reply.reply%> </p>
         <% }) %> 
       </section>
     <% }) %> 
