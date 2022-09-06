@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const commentSchema = new Schema({
+const replySchema = new Schema({
   username: {
     type: String
   },
@@ -13,22 +13,20 @@ const commentSchema = new Schema({
   },
   comment: {
     type: String,
-    trim: true,
-    required: true
+    required: true,
   },
   date: {
     type: Date
   },
-  likes: [{
+  likes: {
+    type: [String]
+  },
+  comment: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'comment'
-  }],
-  reply:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'reply'
   }
 })
 
-const Comment = mongoose.model('comment', commentSchema)
+const Reply = mongoose.model('reply', replySchema)
 
-module.exports = Comment
+module.exports = Reply
