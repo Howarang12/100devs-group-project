@@ -13,6 +13,6 @@ For keys, create a keys.js file in the config folder and input the info found in
 Optimizations in the future: <br />
 -Create individual pages to comment on <br />
 -Allow users to reply to other user replies <br />
--Add ability to edit and delete their replies
--Improved selection for toggling edit and reply forms in main.js
+-Add ability to edit and delete their replies <br />
+-Improved selection for toggling edit and reply forms in main.js <br />
 -Add styling to shift replies right (comment chaining)
